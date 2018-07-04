@@ -1,0 +1,25 @@
+<% include ./layouts/header %>
+<body>
+<div class="elemento">
+  <% episode.forEach(function(episode) { %>
+      <div class="caps">
+        <% const episodeUrl = '/episodes/' + episode.slug;   %>
+              <div class="l-box">
+                <a href="<%- episode.slug %>"> <img class="image" src="<%- episode.imageCap %> "></a>
+                  <h4>
+                    <a  href="<%- episode.slug %>">
+                      <% if(episode.title.length > 28) { %>
+                  <%- episode.title.substring(0,28) %>...
+                     <% } else { %>
+                     <%- episode.title %>
+                        <% }; %>
+                    </a>
+                  </h4>
+                  <p><small><%= moment(episode.createdAt).fromNow(); %></small></p>
+              </div>
+      </div>
+      <% }); %>
+    </div>
+</body>
+<% include ./layouts/footer %>
+</html>
