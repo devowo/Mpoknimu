@@ -1,0 +1,17 @@
+<% include ./layouts/header %>
+<div class="elemento">
+<form class="pure-form pure-form-stacked" action="/users/login" method="POST">
+    <fieldset>
+        <legend>Login</legend>
+
+        <label for="email">Email</label>
+        <input id="inputEmail" name="email" type="email" placeholder="Email">
+
+        <label for="password">Password</label>
+        <input id="inputPassword" name="password" type="password" placeholder="Password">
+
+        <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+    </fieldset>
+</form>
+</div>
+<% include ./layouts/footer %>
