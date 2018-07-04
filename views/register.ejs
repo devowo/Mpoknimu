@@ -1,0 +1,24 @@
+<% include ./layouts/header %>
+<div class="elemento">
+<form class="pure-form pure-form-stacked" action="/users/register"  method="POST" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+    <fieldset>
+        <legend>Register</legend>
+
+        <label for="email">Email</label>
+        <input id="inputEmail" name="email" type="email" placeholder="Email">
+
+        <label for="inputUsername">Username</label>
+        <input id="inputUsername" name="username" type="text" placeholder="Username">
+
+        <label for="password">Password</label>
+        <input id="inputPassword" name="password" type="password" placeholder="Password">
+
+        <label for="inputConfirmPassword">Confirm Password</label>
+        <input id="inputConfirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password">
+        <input type="checkbox" name="checkbox" value="check" id="agree"> I have read and agree to the Terms and Conditions and Privacy Policy</input>
+		
+		<button type="submit" class="pure-button pure-button-primary">Sign in</button>
+    </fieldset>
+</form>
+</div>
+<% include ./layouts/footer %>
