@@ -1,0 +1,58 @@
+<% include ./layouts/header %>
+
+	<!--	<script type="text/javascript" src="https://content.jwplatform.com/libraries/es3tFzVf.js"></script>
+<script src="player/jwplayer/jwplayer.js"></script>
+<script>jwplayer.key="pTXQ0hR1iHUrKsQ//UZzTZRBTAKZzsF0FVIV";</script>-->
+	<script src="https://content.jwplatform.com/libraries/bfIbW5Pe.js"></script>
+
+
+
+<body>
+<div class="elementoVideo">
+	<div class="container" style="">
+		<div class="row">
+			<h1>
+				<%- episode.serieTitle %> <%- episode.chapter %>
+			</h1>
+<div class="media80">
+  <div id="myElement"></div>
+				<script type="text/javascript">
+					var playerInstance = jwplayer("myElement");
+					playerInstance.setup({
+						file: "/assets/cap3.mp4",
+						width: "100%",
+            aspectratio: "16:9",
+						playbackRateControls: [0.25, 0.75, 1, 1.25, 2, 3],
+						image: "<%- episode.imageCap %>",
+						preload: "metadata"
+					});
+				</script>
+        </div>
+		</div>
+	</div>
+<div>
+
+<% if(isAuthenticated){ %>
+
+  <h2>Update Anime</h2>
+<form class="lel" id="lel" action="/episodes/<%= episode._id %>?_method=PATCH" method="POST">
+      <label>Title</label>
+      <input id="title" type="text" name="title" value=" <%= episode.title %>">
+      <label>slug</label>
+      <input id="slug" type="text" name="slug" value=" <%= episode.slug %>">
+      <label>imageCap</label>
+      <input id="imageCap" type="text" name="imageCap" value="<%=  episode.imageCap %>">
+      <label>Server</label>
+      <input id="server" type="text" name="server" value="<%=  episode.server %>">
+
+
+<button type="submit" class="button-primary" id="btnn" style="background-color: white;">Submit</button>
+</form>
+<% } %>
+</div>
+
+
+  </div>
+</body>
+<% include ./layouts/footer %>
+</html>
