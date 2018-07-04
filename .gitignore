@@ -1,0 +1,6 @@
+client/dist/
+client/node_modules/
+client/build/
+client/static/
+node_modules/
+public/assets/
