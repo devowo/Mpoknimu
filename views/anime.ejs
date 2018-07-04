@@ -1,0 +1,77 @@
+<% include ./layouts/header %>
+
+  <body>
+  <div class="elementoAnime">
+    <h1>View Anime </h1>
+    <h4 class="card-title">
+      <%- serie.title %>
+      <!--<%- serie._id %>-->
+    </h4>
+    <br>
+    <%- serie.synopsis.substring(0,48) %>...
+      <br>
+      <br>
+      <h6>Type:</h6>
+      <ul>
+        <%- link_to(serie.type) %>
+      </ul>
+
+  <h6>Genre:</h6>
+      <ul>
+        <% for(var i=0; i<serie.tags.length; i++) {%>
+          <li>
+            <%- link_to(serie.tags[i], '/'+serie.tags[i]) %>
+          </li>
+          <% } %>
+      </ul>
+
+      
+
+      <h6>Episode:</h6>
+      <ul>
+         <% for(var i=0; i<serie.episodes.length; i++) {%>
+          <li>
+            <%- link_to(serie.episodes[i].slug, '/'+serie.episodes[i].slug) %>
+          </li>
+          <% }  %> 
+      </ul>
+
+<% if(isAuthenticated){ %>
+
+&nbsp;
+<h2>Add episode to this anime</h2>
+&nbsp;
+<h4>id: <%- serie._id %></h4>
+<form class="lel" id="lel" action="/" method="POST">
+        <label>Id Anime</label>
+        <input id="anime" name="anime" type="text" placeholder="<%- serie._id %>">
+        <label>Title</label>
+        <input id="title" name="title" type="text" placeholder="title">
+        <label>Server</label>
+        <input id="server" name="server" type="text" placeholder="server">
+        <label>ImageCap</label>
+        <input id="imageCap" name="imageCap" type="text" placeholder="imageCap">
+
+<button type="submit" class="button-primary" id="btn" style="background-color: white;">Submit</button>
+</form>
+
+
+&nbsp;
+<h2>Update Anime</h2>
+<form class="lel" id="lel" action="/series/<%= serie._id %>?_method=PATCH" method="POST">
+      <label>Title</label>
+      <input id="title" type="text" name="title" value=" <%= serie.title %>">
+      <label>slug</label>
+      <input id="slug" type="text" name="slug" value=" <%= serie.slug %>">
+      <label>Image URL</label>
+      <input id="cover" type="text" name="cover" value="<%=  serie.cover %>">
+      <label>Sinopsis</label>
+      <textarea id="synopsis" name="synopsis"><%= serie.synopsis %> </textarea>
+
+<button type="submit" class="button-primary" id="btnn" style="background-color: white;">Submit</button>
+</form>
+<% } %>
+</div>
+  </body>
+<% include ./layouts/footer %>
+  </html>
