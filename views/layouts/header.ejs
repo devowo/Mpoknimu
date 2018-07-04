@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MPOKNIMU</title>
+    <meta charset="UTF-8">
+    <link href="/css/app.css" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1" />
+</head>
+
+  
+
+<div class="contenedor">
+<header>
+			<div class="logo">
+				<img src="#" width="150" alt="">
+				<a href="/">Home</a>
+			</div>
+ 
+			<nav>
+				<a href="/series/1">Series</a>
+         <% if(isAuthenticated){ %>
+				<a href="/users/dashboard">Dashboard</a>
+        <a href="/users/logout">Logout</a>
+        <% } else{ %>
+				<a href="/users/login">Login</a>
+				<a href="/users/register">Register</a>
+        <% } %>
+			</nav>
+</header>
+
+<% if (success_messages) { %>
+    <div class="alert alert-success"><%= success_messages %></div>
+<% } %>
+
+<% if (error_messages) { %>
+  <div class="alert alert-danger"><%= error_messages %></div>
+<% } %>
+
