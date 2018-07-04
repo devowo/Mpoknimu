@@ -1,0 +1,51 @@
+<% include ./layouts/header %>
+	<body>
+  <div class="elemento">
+         <% serie.forEach(function(serie) { %>
+					
+						<% const serieUrl = '/series/' + serie.slug;   %>
+            <div class="sada1">
+									<a href="anime/<%- serie.slug %>" class="card-link">  <img class="image" id="image-home" src="<%- serie.cover %>" alt="Card image cap"></a>
+										<h4 class="card-title">
+											<%- serie.title.substring(0,18) %>
+										</h4>
+										<p class="card-text">
+											<%- serie.synopsis.substring(0,20) %>...
+										</p>
+								</div>
+					<% }); %>
+          </div>
+          
+          <div class="pagination">
+            <% if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (current == 1) { %>
+                        <a class="disabled"><<</a>
+                    <% } else { %>
+                        <a href="/series/1"><<</a>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <a class="disabled">...</a>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <a class="active"><%= i %></a>
+                        <% } else { %>
+                            <a href="/series/<%= i %>"><%= i %></a>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <a class="disabled">...</a>
+                        <% } %>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <a class="disabled">>></a>
+                    <% } else { %>
+                       <a href="/series/<%= pages %>">>></a>
+                    <% } %>
+                </ul>
+            <% } %>
+          </div>
+	</body>
+  <% include ./layouts/footer %>
+	</html>

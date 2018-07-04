@@ -1,0 +1,66 @@
+<% include ./layouts/header %>
+
+<h1 id="dash">Dashboard</h1>
+
+<body>
+
+<div class="elementoDash">
+<form class="lel" id="lel" action="/series/1" method="POST">
+   
+        <legend>Add a series</legend>
+
+        <label>Title</label>
+        <input id="title" name="title" type="text" placeholder="title">
+
+        <label>Cover</label>
+        <input id="cover" name="cover" type="text" placeholder="cover">
+
+        <label>Sinopsis</label>
+        <input id="synopsis" name="synopsis" type="text" placeholder="synopsis">
+
+        <select name="estate" id="estate">
+          <option value="Activo">Active</option>
+          <option value="Finalizado">Finalized</option>
+          <option value="Suspendido">Discontinued</option>
+          <option value="Cancelado">Canceled</option>
+        </select>
+
+        <select name="type" id="type">
+          <option value="Anime">Anime</option>
+          <option value="OVA">OVA</option>
+          <option value="Pelicula">Movie</option>
+          <option value="Corto">Short</option>
+        </select>
+
+        <select multiple="multiple" name="tags" type="text" id="tags" >
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Comedy">Comedy</option>
+		  <option value="Drama">Drama</option>
+		  <option value="Fantasy">Fantasy</option>
+		  <option value="Horror">Horror</option>
+		  <option value="Mecha">Mecha</option>
+		  <option value="Mystery">Mystery</option>
+		  <option value="Romance">Romance</option>
+		  <option value="Seinen">Seinen</option>
+		  <option value="Slice of Life">Slice of Life</option>
+          <option value="Yuri">Yuri</option>
+        </select>
+         
+
+        <button type="submit" class="button-primary" id="btn" style="background-color: white;">Submit</button>
+    
+</form>
+&nbsp;
+<h2>Add new chapter</h2>
+&nbsp;
+
+</div>
+ <script>
+   $('#lel').on('btn', function(e) {
+        e.preventDefault();
+        var cuisines = $('tags').val().join(',');
+    });
+ </script>
+<% include ./layouts/footer %>
+</html>
