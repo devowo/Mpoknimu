@@ -1,0 +1,15 @@
+<% include ./layouts/header %> <script src="https://content.jwplatform.com/libraries/bfIbW5Pe.js"></script><body><div class="container" style="width: 720px;margin-top: 15px;"><div class="row"><h1> <%- episode.serieTitle %> <%- episode.chapter %> </h1><br> <%- episode.server %> <br><div id="myElement"></div><script type="text/javascript">var playerInstance = jwplayer("myElement");
+					playerInstance.setup({
+						file: "<%- episode.server %>",
+						height: "440",
+						width: "720",
+						autostart: false,
+						playbackRateControls: [0.25, 0.75, 1, 1.25, 2, 3],
+						title: "<%- episode.serieTitle %> <%- episode.chapter %>",
+						image: "<%- episode.imageCap %>",
+						abouttext: "<%- episode.serieTitle %> <%- episode.chapter %>",
+						displaytitle: true,
+						timeSliderAbove: true,
+						primary: "html5",
+						preload: "metadata"
+					});</script></div></div></body>
