@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -15,7 +17,8 @@
     "firebaseui": "^2.5.1",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
-    "vue-script2": "^2.0.1"
+    "vue-script2": "^2.0.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -62,5 +65,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 10"
-  ]
+  ],
+  "snyk": true
 }
