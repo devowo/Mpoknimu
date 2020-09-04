@@ -46,7 +46,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^4.0.0",
     "gulp-uglify": "^3.0.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.14.11",
     "uglify-es": "^3.3.7"
   }
